@@ -229,6 +229,76 @@
         "EnumValues": {}
     },
     {
+        "DisplayName": "Enable Takaro",
+        "Category": "VEIN:stadia_controller",
+        "Subcategory": "Takaro:hub:2",
+        "Description": "Linux only. Connects this server to [Takaro](https://takaro.io) with the native VEIN connector from [gettakaro/connectors](https://github.com/gettakaro/connectors/tree/main/games/vein). Players install nothing. NOTE: Update the server after enabling this option, then restart it.",
+        "Keywords": "takaro,connector,plugin,TakaroEnabled",
+        "FieldName": "TakaroEnabled",
+        "InputType": "checkbox",
+        "ParamFieldName": "TakaroEnabled",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {
+            "False": "",
+            "True": "libtakaro-vein.so"
+        }
+    },
+    {
+        "DisplayName": "Takaro Registration Token",
+        "Category": "VEIN:stadia_controller",
+        "Subcategory": "Takaro:hub:2",
+        "Description": "The registration token from the Takaro dashboard (Settings > Game servers). Restart the server after changing it.",
+        "Keywords": "takaro,token,registration,TakaroRegistrationToken",
+        "FieldName": "TakaroRegistrationToken",
+        "InputType": "password",
+        "ParamFieldName": "TakaroRegistrationToken",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Takaro Server Identity",
+        "Category": "VEIN:stadia_controller",
+        "Subcategory": "Takaro:hub:2",
+        "Description": "A name that is unique for each of your game servers in Takaro. Keep it unchanged once the server is registered, otherwise Takaro creates a new game server.",
+        "Keywords": "takaro,identity,TakaroIdentity",
+        "FieldName": "TakaroIdentity",
+        "InputType": "text",
+        "ParamFieldName": "TakaroIdentity",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "vein",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Takaro Server Name",
+        "Category": "VEIN:stadia_controller",
+        "Subcategory": "Takaro:hub:2",
+        "Description": "The name Takaro gives this server when it registers, also shown in front of Takaro's chat messages. Empty = VEIN.",
+        "Keywords": "takaro,name,TakaroServerName",
+        "FieldName": "TakaroServerName",
+        "InputType": "text",
+        "ParamFieldName": "TakaroServerName",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "Placeholder": "My VEIN server",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Takaro Connector Version",
+        "Category": "VEIN:stadia_controller",
+        "Subcategory": "Takaro:hub:2",
+        "Description": "The [VEIN connector release](https://github.com/gettakaro/connectors/releases?q=vein-v) to install, for example 0.4.1. Empty = latest. NOTE: Update the server after changing it.",
+        "Keywords": "takaro,version,TakaroVersion",
+        "FieldName": "TakaroVersion",
+        "InputType": "text",
+        "ParamFieldName": "TakaroVersion",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "Placeholder": "0.4.1",
+        "EnumValues": {}
+    },
+    {
         "DisplayName": "Server Branch",
         "Category": "Updates",
         "Subcategory": "Steam Downloads:download",

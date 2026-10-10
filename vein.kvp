@@ -21,7 +21,7 @@ Meta.Prerequisites=[]
 Meta.ExtraContainerPackages=[]
 Meta.ConfigReleaseState=NotSpecified
 Meta.NoCommercialUsage=False
-Meta.ConfigVersion=3
+Meta.ConfigVersion=4
 Meta.ReleaseNotes=
 Meta.BreakingReleaseNotes=
 Meta.AppConfigId=e4161021-bd97-4306-a8e7-ec1c32947e0f
@@ -39,7 +39,7 @@ App.WindowsCommandLineArgs=
 App.CommandLineArgs={{$PlatformArgs}} Vein -Port={{$GamePort}} -QueryPort={{$QueryPort}} {{MultiHome}}{{$FormattedArgs}} -UseGameSaveDir -stdout -FullStdOutLogOutput
 App.UseLinuxIOREDIR=False
 App.AppSettings={}
-App.EnvironmentVariables={"LD_LIBRARY_PATH":"{{$FullRootDir}}linux64:%LD_LIBRARY_PATH%","SteamAppId":"1857950"}
+App.EnvironmentVariables={"LD_LIBRARY_PATH":"{{$FullRootDir}}linux64:{{$FullRootDir}}TakaroVein:%LD_LIBRARY_PATH%","SteamAppId":"1857950","LD_PRELOAD":"{{TakaroEnabled}}","TAKARO_REGISTRATION_TOKEN":"{{TakaroRegistrationToken}}","TAKARO_IDENTITY_TOKEN":"{{TakaroIdentity}}","TAKARO_SERVER_NAME":"{{TakaroServerName}}","TAKARO_PLUGIN_DATA_DIR":"{{$FullRootDir}}takaro-data"}
 App.CommandLineParameterFormat=-{0}={1}
 App.CommandLineParameterDelimiter= 
 App.ExitMethod=OS_CLOSE

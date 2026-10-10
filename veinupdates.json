@@ -77,5 +77,15 @@
         "UpdateSourceArgs": "{{$FullBaseDir}}Vein/Saved/Config/LinuxServer/Game.ini",
         "OverwriteExistingFiles": false,
         "SkipOnFailure": false
+    },
+    {
+        "UpdateStageName": "Takaro Connector Download",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "-c \"v=\\\"{{TakaroVersion}}\\\"; v=\\\"${v#vein-v}\\\"; v=\\\"${v#v}\\\"; if [ -z \\\"$v\\\" ]; then tag=$(curl -fsSL \\\"https://api.github.com/repos/gettakaro/connectors/releases?per_page=100\\\" | jq -r '[.[] | select(.draft == false and .prerelease == false and (.tag_name | startswith(\\\"vein-v\\\")))][0].tag_name // empty'); elif echo \\\"$v\\\" | grep -Eq \\\"^[0-9]+[.][0-9]+[.][0-9]+$\\\"; then tag=\\\"vein-v$v\\\"; else echo \\\"Invalid Takaro Connector Version: use a version like 0.4.1 or leave it empty\\\"; exit 1; fi; if [ -z \\\"$tag\\\" ]; then echo \\\"Could not find a Takaro VEIN connector release\\\"; exit 1; fi; url=\\\"https://github.com/gettakaro/connectors/releases/download/$tag\\\"; curl -fsSL -o takaro-vein-plugin.tar.gz \\\"$url/takaro-vein-plugin.tar.gz\\\" && curl -fsSL -o takaro-vein-SHA256SUMS \\\"$url/SHA256SUMS\\\" && grep \\\" takaro-vein-plugin.tar.gz$\\\" takaro-vein-SHA256SUMS | sha256sum -c - && tar -xzf takaro-vein-plugin.tar.gz -C \\\"{{$FullRootDir}}\\\" && rm -f takaro-vein-plugin.tar.gz takaro-vein-SHA256SUMS && echo \\\"Takaro VEIN connector $tag installed\\\"\"",
+        "UpdateSourceConditionSetting": "TakaroEnabled",
+        "UpdateSourceConditionValue": "libtakaro-vein.so",
+        "SkipOnFailure": false
     }
 ]
